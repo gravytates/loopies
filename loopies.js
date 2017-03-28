@@ -41,3 +41,72 @@ for(i=0; i<=strarray.length; i++) {
 }
 
 var newString = newArray.join("");
+
+
+// factorial function
+var factorial = function(number) {
+  if(number < 0) {
+		return -1;
+	}
+	else if(number == 0) {
+		return 1;
+	}
+
+	else {
+		return (number * factorial(number - 1));
+	}
+};
+
+//palindromes
+var pal = "racecar";
+ var palCheck = function(string) {
+	var strArray = string.split("");
+	var strReverse = strArray.slice().reverse();
+	console.log(strArray);
+	console.log(strReverse);
+	if (strReverse.toString() === strArray.toString()) {
+		alert("it's a palindrome!");
+	} else {
+		alert("it's not a palindrome you pleb!");
+    }
+ }
+palCheck(pal);
+
+
+var makeArray = function(start, end) {
+	tempArray = [];
+	for(i=start; i <= end; i++){
+		tempArray.push(i);
+	}
+	return tempArray;
+}
+
+
+//sieve of eratosthenes
+var primeHunter = function(array){
+	var newArray = [];
+	array.forEach(function(number){
+		if(number === 2
+			|| number === 3
+			|| number === 5
+			|| number === 7
+			|| number === 9
+			|| number === 11
+			|| number === 13){
+			newArray.push(number);
+		}
+		else if((number % 2) === 0
+		|| (number % 3) === 0
+		|| (number % 5) === 0
+		|| (number % 7) === 0
+		|| (number % 9) === 0
+		|| (number % 11) === 0
+		|| (number % 13) === 0){
+			newArray.splice(number, 1 );
+		}
+		else{
+			newArray.push(number);
+		}
+	});
+	console.log(newArray);
+};
