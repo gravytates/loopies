@@ -81,8 +81,9 @@ var makeArray = function(start, end) {
 	return tempArray;
 }
 
-
 //sieve of eratosthenes
+
+//mk1
 var primeHunter = function(array){
 	var newArray = [];
 	array.forEach(function(number){
@@ -110,3 +111,48 @@ var primeHunter = function(array){
 	});
 	console.log(newArray);
 };
+
+
+
+
+
+//mk2
+var primeCompare = function(number){
+	var result = false;
+	var basePrimes = [2,3,5,7,9,11,13];
+	basePrimes.forEach(function(prime){
+		if (number === prime) {
+			result = true;
+		}
+	});
+	return result;
+};
+
+var primeMultiple = function(number) {
+	var result = false;
+	var basePrimes = [2,3,5,7,9,11,13];
+	basePrimes.forEach(function(prime){
+		if (number % prime === 0) {
+			result = true;
+		}
+	});
+	return result;
+}
+
+var primeHunter = function(array){
+	var newArray = [];
+	array.forEach(function(number){
+		if (primeCompare(number)) {
+			newArray.push(number);
+		}
+		else if (primeMultiple(number)){
+			newArray.splice(number, 1 );
+		}
+		else{
+			newArray.push(number);
+		}
+	});
+	console.log(newArray);
+};
+
+primeHunter(makeArray(2,100));
